@@ -15,8 +15,8 @@ public class Main {
         System.out.println("Введите целевую валюту:");
         String toCurrency = scanner.next();
         System.out.println("Вы хотите конвертировать" + amount + " " + fromCurrency + " в " + toCurrency);
-        double eurRate = given().when().get("https://open.er-api.com/v6/latest/USD").path("rates.EUR");
-        double htgRate = given().when().get("https://open.er-api.com/v6/latest/USD").path("rates.HTG");
+        double eurRate = Double.parseDouble(given().when().get("https://open.er-api.com/v6/latest/USD").path("rates.EUR").toString());
+        double htgRate = Double.parseDouble(given().when().get("https://open.er-api.com/v6/latest/USD").path("rates.HTG").toString());
         double result = 0;
         if ( fromCurrency.equals("USD")) {
              result = amount * eurRate;
